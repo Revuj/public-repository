@@ -1,9 +1,33 @@
-schemaVersion: 2.0.0
-metadata:
-  name: public-repository-2
-components:
-  - name: test
-    container:
-      image: 012802407964.dkr.ecr.us-west-2.amazonaws.com/test-universal-image:latest
-      mountSources: true
-      command: ['sleep', 'infinity']
+{
+  "schemaVersion": "2.0.0",
+  "metadata": {
+    "name": "aws-universal",
+    "version": "1.0.1",
+    "displayName": "AWS Universal",
+    "description": "Stack with AWS Universal Tooling",
+    "tags": ["aws", "a12"],
+    "projectType": "aws"
+  },
+  "components": [
+    {
+      "name": "aws-runtime",
+      "container": {
+        "image": "012802407964.dkr.ecr.us-west-2.amazonaws.com/test-universal-image:latest",
+        "mountSources": true,
+        "command": ["sleep", "infinity"],
+        "volumeMounts": [
+          {
+            "name": "docker-store",
+            "path": "/var/lib/docker"
+          }
+        ]
+      }
+    },
+    {
+      "name": "docker-store",
+      "volume": {
+        "size": "16Gi"
+      }
+    }
+  ]
+}
