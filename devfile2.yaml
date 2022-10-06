@@ -12,7 +12,7 @@
     {
       "name": "aws-runtime",
       "container": {
-        "image": "012802407964.dkr.ecr.us-west-2.amazonaws.com/test-universal-image:latest",
+        "image": "635592064943.dkr.ecr.us-west-2.amazonaws.com/test-universal-image:latest",
         "mountSources": true,
         "command": ["sleep", "infinity"],
         "volumeMounts": [
